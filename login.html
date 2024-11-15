@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartSave Login</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    body {
+      background-color: #1e1e2e; /* Abu-abu gelap, bukan hitam pekat */
+      color: #d1d1e0; /* Abu-abu terang untuk teks agar lebih lembut */
+    }
+    .login-container {
+      display: flex;
+      min-height: 100vh;
+      align-items: center;
+      justify-content: center;
+    }
+    .login-card {
+      width: 100%;
+      max-width: 400px;
+      padding: 2rem;
+      border-radius: 10px;
+      background-color: #2a2a3b; /* Abu-abu sedang untuk latar belakang form */
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); /* Bayangan halus */
+      display: flex;
+      flex-direction: column;
+    }
+    .login-header {
+      font-size: 1.5rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      text-align: center;
+      color: #b99bb7; /* Warna ungu pastel lembut */
+    }
+    .btn-primary {
+      background-color: #857ca1; /* Ungu pastel */
+      border-color: #857ca1;
+    }
+    .btn-primary:hover {
+      background-color: #7a7190;
+      border-color: #7a7190;
+    }
+    .nav-tabs .nav-link.active {
+      background-color: #857ca1; /* Ungu pastel */
+      color: #ffffff;
+    }
+    .nav-tabs .nav-link {
+      color: #a29bb9; /* Ungu pastel lembut untuk tab yang tidak aktif */
+    }
+    .form-label {
+      color: #a29bb9;
+    }
+    .form-control {
+      background-color: #39394a; /* Warna abu-abu gelap lembut */
+      color: #d1d1e0;
+      border: 1px solid #5e5d6d; /* Border abu-abu netral */
+    }
+    .form-control:focus {
+      background-color: #39394a;
+      color: #d1d1e0;
+      border-color: #857ca1; /* Border ungu pastel */
+      box-shadow: 0 0 0 0.15rem rgba(133, 124, 161, 0.2); /* Bayangan halus */
+    }
+    .or-divider {
+      display: flex;
+      align-items: center;
+      text-align: center;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      color: #a29bb9;
+    }
+    .or-divider::before, .or-divider::after {
+      content: '';
+      flex: 1;
+      border-bottom: 1px solid #4b4b5e; /* Garis abu-abu netral */
+    }
+    .or-divider::before {
+      margin-right: .5em;
+    }
+    .or-divider::after {
+      margin-left: .5em;
+    }
+    .social-icons .material-icons {
+      font-size: 36px;
+      margin-right: 15px;
+      color: #857ca1; /* Warna ungu pastel */
+      transition: transform 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .social-icons .material-icons:hover {
+      color: #ffffff; /* Warna putih saat di-hover */
+      transform: scale(1.1); /* Sedikit memperbesar ikon */
+      box-shadow: 0 4px 8px rgba(133, 124, 161, 0.4); /* Bayangan halus untuk kesan menonjol */
+    }
+    .social-icons .material-icons:active {
+      transform: scale(0.95); /* Mengurangi ukuran sedikit untuk memberi efek klik */
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); /* Memberikan bayangan lebih kuat saat klik */
+    }
+    .footer-text {
+      text-align: center;
+      font-size: 0.9rem;
+      color: #8a8a9e; /* Abu-abu lembut */
+      margin-top: 1.5rem;
+    }
+    .image-section {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #242434; /* Abu-abu gelap untuk latar belakang gambar */
+      min-height: 100vh;
+    }
+    .image-section img {
+      width: 100%; /* Gambar memenuhi kolom kanan */
+      height: 100%; /* Menyesuaikan tinggi kolom */
+      object-fit: cover; /* Gambar tetap proporsional */
+      opacity: 0.9; /* Membuat gambar terlihat lebih lembut */
+    }
+  </style>
+</head>
+<body>
+
+<div class="container-fluid">
+  <div class="row">
+    <!-- Left Column: Login Form -->
+    <div class="col-md-6 d-flex align-items-center justify-content-center">
+      <div class="login-card">
+        <div class="text-center mb-4">
+          <img src="https://via.placeholder.com/50" alt="Logo" class="mb-3">
+          <h2 class="login-header">Welcome Back</h2>
+          <p class="text-muted" style="color: #8a8a9e;">Please enter your details</p>
+        </div>
+        
+        <ul class="nav nav-tabs mb-4" role="tablist">
+          <li class="nav-item">
+            <a class="nav-link active" href="#signin" id="signinTab">Sign In</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#signup" id="signupTab">Sign Up</a>
+          </li>
+        </ul>
+
+        <!-- Sign In Form -->
+        <form id="signinForm" style="display: block;">
+          <div class="mb-3">
+            <label for="signinEmail" class="form-label">Email Address</label>
+            <input type="email" class="form-control" id="signinEmail" placeholder="you@example.com">
+          </div>
+          <div class="mb-3">
+            <label for="signinPassword" class="form-label">Password</label>
+            <input type="password" class="form-control" id="signinPassword" placeholder="Enter your password">
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Sign In</button>
+        </form>
+
+        <!-- Sign Up Form -->
+        <form id="signupForm" style="display: none;">
+          <div class="mb-3">
+            <label for="signupFullName" class="form-label">Full Name</label>
+            <input type="text" class="form-control" id="signupFullName" placeholder="Your Full Name">
+          </div>
+          <div class="mb-3">
+            <label for="signupEmail" class="form-label">Email Address</label>
+            <input type="email" class="form-control" id="signupEmail" placeholder="you@example.com">
+          </div>
+          <div class="mb-3">
+            <label for="signupPassword" class="form-label">Password</label>
+            <input type="password" class="form-control" id="signupPassword" placeholder="Enter your password">
+          </div>
+          <div class="mb-3">
+            <label for="signupConfirmPassword" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" id="signupConfirmPassword" placeholder="Confirm your password">
+          </div>
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" value="" id="signupTermsCheck">
+            <label class="form-check-label" for="signupTermsCheck">
+              I agree to the <a href="#">Terms and Conditions</a>
+            </label>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+        </form>
+
+        <div class="or-divider">Or Continue With</div>
+        
+        <div class="d-flex justify-content-center social-icons">  
+          <i class="material-icons">email</i>
+          <i class="material-icons">apple</i>
+          <i class="material-icons">facebook</i>
+        </div>
+        
+        <div class="footer-text">
+         Enjoy the movie and have a nice one.
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Image Section -->
+    <div class="col-md-6 image-section">
+      <img src="borderlands-movie-3840x2160-17781.jpg" alt="Safe Icon Image">
+    </div>
+  </div>
+</div>
+
+<script>
+  document.getElementById('signinTab').addEventListener('click', function () {
+    document.getElementById('signinForm').style.display = 'block';
+    document.getElementById('signupForm').style.display = 'none';
+    document.getElementById('signinTab').classList.add('active');
+    document.getElementById('signupTab').classList.remove('active');
+  });
+
+  document.getElementById('signupTab').addEventListener('click', function () {
+    document.getElementById('signinForm').style.display = 'none';
+    document.getElementById('signupForm').style.display = 'block';
+    document.getElementById('signupTab').classList.add('active');
+    document.getElementById('signinTab').classList.remove('active');
+  });
+</script>
+
+</body>
+</html>

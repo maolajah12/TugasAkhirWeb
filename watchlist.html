@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Film Watchlist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+
+  <style>
+    body {
+      background-color: #12121b;
+      color: #fcfcfc;
+    }
+    .watchlist-container {
+      margin: 20px;
+    }
+    .watchlist-title {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .watchlist-view-toggle {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .movie-card {
+      background-color: #2a2a3b;
+      border-radius: 8px;
+      padding: 15px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    .movie-card img {
+      width: 100%;
+      height: auto;
+      max-height: 300px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+    .movie-title {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 10px;
+      color: #fcfcfc;
+    }
+  </style>
+</head>
+<body>
+  <div class="container watchlist-container">
+    <h1 class="watchlist-title">Film Watchlist</h1>
+    <div class="watchlist-view-toggle">
+      <button id="toggle-horizontal" class="btn btn-secondary me-2">
+        <span class="material-symbols-outlined">apps</span> 
+      </button>
+      <button id="toggle-vertical" class="btn btn-secondary">
+        <span class="material-symbols-outlined">lists</span> 
+      </button>
+    </div>
+
+    <!-- Watchlist -->
+    <div id="watchlist" class="row row-cols-1 row-cols-md-3 g-4">
+      <div class="col">
+        <div class="movie-card">
+          <img src="https://via.placeholder.com/300x450" alt="Film Poster" />
+          <p class="movie-title">Mortal Kombat</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="movie-card">
+          <img src="https://via.placeholder.com/300x450" alt="Film Poster" />
+          <p class="movie-title">Film Title 2</p>
+        </div>
+      </div>
+      <div class="col">
+        <div class="movie-card">
+          <img src="https://via.placeholder.com/300x450" alt="Film Poster" />
+          <p class="movie-title">Film Title 3</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const watchlist = document.getElementById("watchlist");
+    const toggleHorizontal = document.getElementById("toggle-horizontal");
+    const toggleVertical = document.getElementById("toggle-vertical");
+
+    toggleHorizontal.addEventListener("click", () => {
+      watchlist.classList.remove("row-cols-1", "vertical-mode");
+      watchlist.classList.add("row-cols-md-3");
+    });
+
+    toggleVertical.addEventListener("click", () => {
+      watchlist.classList.remove("row-cols-md-3");
+      watchlist.classList.add("row-cols-1", "vertical-mode");
+    });
+  </script>
+</body>
+</html>
